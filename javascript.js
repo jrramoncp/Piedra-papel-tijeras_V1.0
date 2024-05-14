@@ -2,18 +2,36 @@
 //Para cada valor hay que asignar un texto piedra papel o tijeras
 //
 
-let x = Math.floor(Math.random()*10)
+const computer = Math.floor(Math.random()*10)
 
 function getComputerChoice(){
-if (x >= 0 && x <= 2){
+if (computer >= 0 && computer <= 2){
     console.log("rock")
     }
-else if(x >= 3 && x <= 5){
+else if(computer >= 3 && computer <= 5){
     console.log("papper")
 }
-else if (x >= 6 && x <= 9){
+else if (computer >= 6 && computer <= 9){
     console.log("scissors")
 }
 }
 
 console.log(getComputerChoice())
+
+//Una interfaz para que el usuario introduzca su eleccion
+//La eleccion del usuario tiene que traducirse en las anteriores
+
+let human = window.prompt("Rock, papper or scissors?")
+
+if (human.toLowerCase() === "rock"){
+    console.log("rock")
+}
+else if (human.toLowerCase() === "papper"){
+    console.log("papper")
+}
+else if (human.toLowerCase() === "scissors"){
+    console.log("scissors")
+}
+else{
+    console.log("Incorrect Input")
+}
