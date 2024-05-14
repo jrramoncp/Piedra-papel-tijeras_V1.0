@@ -4,6 +4,7 @@
 
 let x = Math.floor(Math.random()*10)
 
+function getComputerChoice(){
 if (x >= 0 && x <= 2){
     console.log("rock")
     }
@@ -13,4 +14,6 @@ else if(x >= 3 && x <= 5){
 else if (x >= 6 && x <= 9){
     console.log("scissors")
 }
-        
+}
+
+console.log(getComputerChoice())
