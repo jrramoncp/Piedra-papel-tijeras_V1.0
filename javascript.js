@@ -13,21 +13,38 @@ function getComputerChoice(){
 }
 }
 
+console.log("Ordenador:" + " " + getComputerChoice())
+
+
+
 let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
 
 
 function getHumanChoice (){
-if(humano.toLowerCase() === "piedra"){
-        console.log("piedra")
-}else if (humano.toLowerCase() === "papel"){
-        console.log("papel")
-}else if (humano.toLowerCase() === "tijeras"){
-    console.log("tijeras")
+if(humano.toLowerCase() == "piedra"){
+        return ("piedra")
+}else if (humano.toLowerCase() == "papel"){
+        return ("papel")
+}else if (humano.toLowerCase() == "tijeras"){
+    return ("tijeras")
 }else{
     alert("Texto Incorrecto")
 }
 }
 
-console.log(getHumanChoice)
-console.log("Ordenador:" + " " + getComputerChoice())
+function playRound(jugador, maquina){
+    if (jugador == "piedra" && maquina == "tijeras"){
+        alert("Ganas!")
+    }else if (jugador == "papel" && maquina == "piedra"){
+        alert("Ganas!")
+    }else if (jugador == "tijeras" && maquina == "papel"){
+        alert("Ganas!")
+    }else{
+        alert("Pierdes!")
+    }
+}
 
+const jugador = getHumanChoice()
+const maquina = getComputerChoice()
+
+playRound (jugador, maquina)
