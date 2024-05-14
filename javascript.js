@@ -2,7 +2,6 @@
 
 let ordenador = Math.ceil(Math.random() *3)
 
-console.log(ordenador)
 
 function getComputerChoice(){
     if (ordenador == 1){
@@ -14,4 +13,21 @@ function getComputerChoice(){
 }
 }
 
-console.log(getComputerChoice())
+let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
+
+
+function getHumanChoice (){
+if(humano.toLowerCase() === "piedra"){
+        console.log("piedra")
+}else if (humano.toLowerCase() === "papel"){
+        console.log("papel")
+}else if (humano.toLowerCase() === "tijeras"){
+    console.log("tijeras")
+}else{
+    alert("Texto Incorrecto")
+}
+}
+
+console.log(getHumanChoice)
+console.log("Ordenador:" + " " + getComputerChoice())
+
