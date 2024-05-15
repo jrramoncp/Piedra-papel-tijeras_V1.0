@@ -15,7 +15,7 @@ function getComputerChoice(){
 
 console.log("Ordenador:" + " " + getComputerChoice())
 
-
+//Logica del jugador
 
 let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
 
@@ -31,6 +31,12 @@ if(humano.toLowerCase() == "piedra"){
     alert("Texto Incorrecto")
 }
 }
+//Puntuaciones
+
+let humanScore = 0
+let computerScore = 0
+
+//Logica para un juego
 
 function playRound(jugador, maquina){
     if (jugador == "piedra" && maquina == "tijeras"){
@@ -39,6 +45,8 @@ function playRound(jugador, maquina){
         alert("Ganas!")
     }else if (jugador == "tijeras" && maquina == "papel"){
         alert("Ganas!")
+    }else if (jugador == maquina){
+        alert("Empate!")
     }else{
         alert("Pierdes!")
     }
@@ -48,3 +56,7 @@ const jugador = getHumanChoice()
 const maquina = getComputerChoice()
 
 playRound (jugador, maquina)
+
+console.log("Puntuación del jugador" + " " + humanScore)
+console.log("Puntuación de la maquina" + " " + computerScore)
+
