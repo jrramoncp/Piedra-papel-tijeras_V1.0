@@ -13,7 +13,7 @@ function getComputerChoice(){
 }
 }
 
-console.log("Ordenador:" + " " + getComputerChoice())
+//console.log("Ordenador:" + " " + getComputerChoice())
 
 //Logica del jugador
 
@@ -55,7 +55,7 @@ function playRound(jugador, maquina){
 const jugador = getHumanChoice()
 const maquina = getComputerChoice()
 
-playRound (jugador, maquina)
+
 
 let round = playRound(jugador, maquina)
 
@@ -65,20 +65,34 @@ function alertas(ronda){
     if (ronda == "ganador"){
         alert ("¡Ganas!")
     }else if (ronda == "empate"){
-        alert ("¡Empate")
+        alert ("¡Empate!")
     }else{
         alert("¡Pierdes!")
     }
 }
-alertas(round)
+
+
+////////////Puntuacion
 
 function puntuacion(ronda){
     if (ronda == "ganador"){
-        console.log("Tus puntos: "+ (humanScore + 1) + " / " + "Puntos de la maquina: " + computerScore)
+        humanScore ++
+        console.log("Tus puntos: "+ (humanScore) + " / " + "Puntos de la maquina: " + computerScore)
     }
     else if (ronda == "perdedor"){
-        console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore + 1))
+        computerScore ++
+        console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
+    }
+    else{
+        console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
     }
 }
 
-puntuacion (round)
+
+function playGame(){
+    playRound(jugador, maquina)
+    alertas(round)
+    puntuacion(round)
+}
+
+playGame()
