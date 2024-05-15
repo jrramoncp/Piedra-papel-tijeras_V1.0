@@ -40,15 +40,15 @@ let computerScore = 0
 
 function playRound(jugador, maquina){
     if (jugador == "piedra" && maquina == "tijeras"){
-        alert("Ganas!")
+       return ("ganador")
     }else if (jugador == "papel" && maquina == "piedra"){
-        alert("Ganas!")
+        return ("ganador")
     }else if (jugador == "tijeras" && maquina == "papel"){
-        alert("Ganas!")
+        return ("ganador")
     }else if (jugador == maquina){
-        alert("Empate!")
+        return ("empate");
     }else{
-        alert("Pierdes!")
+        return("perdedor");
     }
 }
 
@@ -57,6 +57,18 @@ const maquina = getComputerChoice()
 
 playRound (jugador, maquina)
 
-console.log("Puntuación del jugador" + " " + humanScore)
-console.log("Puntuación de la maquina" + " " + computerScore)
+let round = playRound(jugador, maquina)
 
+/////////////Alertas de ganador o perdedor
+
+function alertas(ronda){
+    if (ronda == "ganador"){
+        alert ("¡Ganas!")
+    }else if (ronda == "empate"){
+        alert ("¡Empate")
+    }else{
+        alert("¡Pierdes!")
+    }
+}
+
+alertas(round)
