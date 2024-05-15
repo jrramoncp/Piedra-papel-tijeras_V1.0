@@ -70,5 +70,15 @@ function alertas(ronda){
         alert("¡Pierdes!")
     }
 }
-
 alertas(round)
+
+function puntuacion(ronda){
+    if (ronda == "ganador"){
+        console.log("Tus puntos: "+ (humanScore + 1) + " / " + "Puntos de la maquina: " + computerScore)
+    }
+    else if (ronda == "perdedor"){
+        console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore + 1))
+    }
+}
+
+puntuacion (round)
