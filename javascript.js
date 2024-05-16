@@ -1,9 +1,11 @@
 //Logica del PC
 
-let ordenador = Math.ceil(Math.random() *3)
+//Una funcion para que el pc elija una de las tres opciones
+//Traduce cada opcion numerica en un string y devuelve el string
 
 
 function getComputerChoice(){
+    let ordenador = Math.ceil(Math.random() *3)
     if (ordenador == 1){
         return ("piedra")
 }else if (ordenador == 2){
@@ -13,68 +15,70 @@ function getComputerChoice(){
 }
 }
 
-//console.log("Ordenador:" + " " + getComputerChoice())
-
 //Logica del jugador
+//Una funcion para que el jugador introduzca su eleccion
+//Da igual como lo introduzca, siempre se hara en minusculas
 
-let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
-
-
-function getHumanChoice (){
-if(humano.toLowerCase() == "piedra"){
+function getHumanChoice(){
+    let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
+    if(humano.toLowerCase() == "piedra"){
         return ("piedra")
 }else if (humano.toLowerCase() == "papel"){
         return ("papel")
-}else if (humano.toLowerCase() == "tijeras"){
+}else if (humano.toLowerCase ()== "tijeras"){
     return ("tijeras")
 }else{
     alert("Texto Incorrecto")
 }
 }
-//Puntuaciones
 
-let humanScore = 0
-let computerScore = 0
 
-//Logica para un juego
+//Logica para una ronda
+//Una funcion que compare los resultados de las dos elecciones
+//Las compare y determine un ganador o un empate
 
-function playRound(jugador, maquina){
-    if (jugador == "piedra" && maquina == "tijeras"){
+
+function playRound(){
+    let player = getHumanChoice();
+    let computer = getComputerChoice();
+    if (player == "piedra" && computer == "tijeras"){
        return ("ganador")
-    }else if (jugador == "papel" && maquina == "piedra"){
+    }else if (player == "papel" && computer == "piedra"){
         return ("ganador")
-    }else if (jugador == "tijeras" && maquina == "papel"){
+    }else if (player == "tijeras" && computer == "papel"){
         return ("ganador")
-    }else if (jugador == maquina){
-        return ("empate");
+    }else if (player == computer){
+        return ("empate")
     }else{
         return("perdedor");
     }
 }
 
-const jugador = getHumanChoice()
-const maquina = getComputerChoice()
+//Alertas
+//Una funcion, que obtenga el resultado de la operacion anterior y devuelva una alerta indicando si ganas o pierdes
 
+let ronda = playRound()
 
-
-let round = playRound(jugador, maquina)
-
-/////////////Alertas de ganador o perdedor
-
-function alertas(ronda){
+function winLose(){
     if (ronda == "ganador"){
-        alert ("¡Ganas!")
-    }else if (ronda == "empate"){
-        alert ("¡Empate!")
-    }else{
-        alert("¡Pierdes!")
+        alert("¡Ganas esta ronda")
+    }
+    else if (ronda == "perdedor"){
+        alert ("¡Pierdes esta ronda!")
+    }
+    else if (ronda == "empate"){
+        alert("¡Esta ronda es empate!")
     }
 }
 
 
-////////////Puntuacion
+//Puntuacion
+//Una funcion que dependiendo del resultado de la ronda sume puntos al ganador
 
-function puntuacion(ronda){
+humanScore = 0
+computerScore = 0
+
+function puntuacion(){
     if (ronda == "ganador"){
         humanScore ++
         console.log("Tus puntos: "+ (humanScore) + " / " + "Puntos de la maquina: " + computerScore)
@@ -88,11 +92,47 @@ function puntuacion(ronda){
     }
 }
 
+//Juego Completo
+//Una funcion, para jugar cinco rondas y que vayan sumando puntos
 
-function playGame(){
-    playRound(jugador, maquina)
-    alertas(round)
-    puntuacion(round)
+function fullGame(){
+winLose()
+puntuacion()
+ronda = playRound()
 }
 
-playGame()
+//Funcion que alerta si has ganado o perdido
+function getWinner(){
+    if (humanScore > computerScore){
+        alert("¡Has ganado!")
+        console.log("¡Has ganado!")
+    }else if (humanScore < computerScore){
+        alert("¡Has perdido!")
+        console.log("¡Has perdido!")
+    }else{
+        alert("¡Empate!")
+        console.log("¡Empate!")
+    }
+    
+}
+
+//Funcion que finaliza el juego
+
+function endGame(){
+    winLose()
+    puntuacion()
+    getWinner()
+}
+
+///Juego completo a 5 rondas
+
+console.log("Ronda 1");
+fullGame();
+console.log("Ronda 2");
+fullGame();
+console.log("Ronda 3");
+fullGame();
+console.log("Ronda 4");
+fullGame();
+console.log("Ronda 5");
+endGame();
