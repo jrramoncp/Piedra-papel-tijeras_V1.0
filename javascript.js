@@ -1,3 +1,18 @@
+//INTERFAZ DE USUARIO
+
+let btnOne = document.createElement("button");
+btnOne.classList.add("Piedra");
+btnOne.textContent = "Piedra";
+document.body.appendChild(btnOne);
+let btnTwo = document.createElement("button");
+btnTwo.classList.add("Papel");
+btnTwo.textContent = "Papel";
+document.body.appendChild(btnTwo);
+let btnThree = document.createElement("button");
+btnThree.classList.add("Tijeras");
+btnThree.textContent = "Tijeras";
+document.body.appendChild(btnThree);
+
 //Logica del PC
 
 //Una funcion para que el pc elija una de las tres opciones
@@ -18,6 +33,18 @@ function getComputerChoice(){
 //Logica del jugador
 //Una funcion para que el jugador introduzca su eleccion
 //Da igual como lo introduzca, siempre se hara en minusculas
+
+let humano = ""
+
+btnOne.addEventListener("click", function(){
+    humano = "piedra"
+});
+btnTwo.addEventListener("click", function(){
+    humano = "papel"
+})
+btnThree.addEventListener("click", function(){
+    humano = "tijeras"
+})
 
 
 function getHumanChoice(){
@@ -125,18 +152,6 @@ function endGame(){
     getWinner()
 }
 
-
-//INTERFAZ DE USUARIO
-
-let btnOne = document.createElement("button");
-btnOne.textContent = "Piedra";
-document.body.appendChild(btnOne);
-let btnTwo = document.createElement("button");
-btnTwo.textContent = "Papel"
-document.body.appendChild(btnTwo);
-let btnThree = document.createElement("button");
-btnThree.textContent = "Tijeras";
-document.body.appendChild(btnThree);
 
 /*
 ///Juego completo a 5 rondas
