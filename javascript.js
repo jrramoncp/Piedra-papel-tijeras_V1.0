@@ -35,16 +35,29 @@ function getComputerChoice(){
 //Da igual como lo introduzca, siempre se hara en minusculas
 
 
+/*btnOne.addEventListener("click", function(){
+    return (playPiedra("piedra"));
+})*/
+
+let game = ""
+
 btnOne.addEventListener("click", function(){
-    playPiedra("piedra");
-})
+    game = (playPiedra("piedra"));
+    getWinner(game);
+    console.log(game)
+});
+
 btnTwo.addEventListener("click", function(){
-    playPapel("papel")
-})
-btnThree.addEventListener("click", function(){
-    playTijeras("tijeras")
+    game = (playPapel("papel"));
+    getWinner(game);
+    console.log(game);
 })
 
+btnThree.addEventListener("click", function(){
+    game = playTijeras("tijeras");
+    getWinner(game);
+    console.log(game);
+})
 
 
 
@@ -57,58 +70,52 @@ btnThree.addEventListener("click", function(){
 function playPiedra(humano){
     let player = humano;
     let computer = getComputerChoice()
-    console.log(computer)
     if (player == "piedra" && computer == "tijeras"){
-        console.log ("ganador");
+        return ("ganador");
     }else if (player == computer){
-        console.log ("empate");
+        return ("empate");
     }else{
-        console.log("perdedor");
+        return ("perdedor");
     }
 }
 
 function playPapel(humano){
     let player = humano;
     let computer = getComputerChoice()
-    console.log(computer)
     if (player == "papel" && computer == "piedra"){
-        console.log ("ganador");
+        return ("ganador");
     }else if (player == computer){
-        console.log ("empate");
+        return ("empate");
     }else{
-        console.log("perdedor");
+        return("perdedor");
     }
 }
 
 function playTijeras(humano){
     let player = humano;
     let computer = getComputerChoice()
-    console.log(computer)
     if (player == "tijeras" && computer == "papel"){
-        console.log ("ganador");
+        return ("ganador");
     }else if (player == computer){
-        console.log ("empate");
+        return ("empate");
     }else{
-        console.log("perdedor");
+        return("perdedor");
     }
 }
 
 //Alertas
 //Una funcion, que obtenga el resultado de la operacion anterior y devuelva una alerta indicando si ganas o pierdes
 
-//let ronda = playRound()
-
-function winLose(){
-    if (ronda == "ganador"){
-        alert("¡Ganas esta ronda")
-    }
-    else if (ronda == "perdedor"){
-        alert ("¡Pierdes esta ronda!")
-    }
-    else if (ronda == "empate"){
-        alert("¡Esta ronda es empate!")
+function getWinner(game){
+    if (game == "ganador"){
+        alert("Has ganado esta ronda");
+    }else if (game == "perdedor"){
+        alert("Has perdido esta ronda!");
+    }else if (game == "empate"){
+        alert("Esta ronda es empate");
     }
 }
+
 
 
 //Puntuacion
@@ -141,7 +148,7 @@ ronda = playRound()
 }
 
 //Funcion que alerta si has ganado o perdido
-function getWinner(){
+/*function getWinner(){
     if (humanScore > computerScore){
         alert("¡Has ganado!")
         console.log("¡Has ganado!")
@@ -154,7 +161,7 @@ function getWinner(){
     }
     
 }
-
+*/
 //Funcion que finaliza el juego
 
 function endGame(){
