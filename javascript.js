@@ -19,6 +19,7 @@ function getComputerChoice(){
 //Una funcion para que el jugador introduzca su eleccion
 //Da igual como lo introduzca, siempre se hara en minusculas
 
+
 function getHumanChoice(){
     let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
     if(humano.toLowerCase() == "piedra"){
@@ -124,6 +125,20 @@ function endGame(){
     getWinner()
 }
 
+
+//INTERFAZ DE USUARIO
+
+let btnOne = document.createElement("button");
+btnOne.textContent = "Piedra";
+document.body.appendChild(btnOne);
+let btnTwo = document.createElement("button");
+btnTwo.textContent = "Papel"
+document.body.appendChild(btnTwo);
+let btnThree = document.createElement("button");
+btnThree.textContent = "Tijeras";
+document.body.appendChild(btnThree);
+
+/*
 ///Juego completo a 5 rondas
 
 console.log("Ronda 1");
@@ -136,3 +151,4 @@ console.log("Ronda 4");
 fullGame();
 console.log("Ronda 5");
 endGame();
+*/
