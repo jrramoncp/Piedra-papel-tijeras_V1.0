@@ -56,13 +56,15 @@ btnOne.addEventListener("click", function(){
     game = (playPiedra("piedra"));
     getWinner(game);
     puntuacion()
-    return(game); 
+    reload()
+    return(game);
 });
 
 btnTwo.addEventListener("click", function(){
     game = (playPapel("papel"));
     getWinner(game);
     puntuacion()
+    reload()
     return(game);
 })
 
@@ -70,6 +72,7 @@ btnThree.addEventListener("click", function(){
     game = playTijeras("tijeras");
     getWinner(game);
     puntuacion()
+    reload()
     return(game);
 })
 
@@ -153,6 +156,16 @@ function puntuacion(){
         console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
     }
 }
+
+//Refrescar página cuando llegue a 5 cualquiera de los contadores y asi reiniciar el juego
+
+function reload(){
+    if (humanScore == 5 || computerScore == 5){
+        location.reload()
+    }
+}
+
+
 
 //Juego Completo
 //Una funcion, para jugar cinco rondas y que vayan sumando puntos
