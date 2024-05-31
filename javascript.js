@@ -13,6 +13,17 @@ btnThree.classList.add("Tijeras");
 btnThree.textContent = "Tijeras";
 document.body.appendChild(btnThree);
 
+//boton para pruebas
+
+let prueba = document.createElement("button")
+prueba.textContent = "prueba"
+document.body.appendChild(prueba)
+
+prueba.addEventListener("click", function(){
+    console.log(getWinner(game))
+})
+
+
 //Logica del PC
 
 //Una funcion para que el pc elija una de las tres opciones
@@ -44,19 +55,19 @@ let game = ""
 btnOne.addEventListener("click", function(){
     game = (playPiedra("piedra"));
     getWinner(game);
-    console.log(game)
+    return(game)
 });
 
 btnTwo.addEventListener("click", function(){
     game = (playPapel("papel"));
     getWinner(game);
-    console.log(game);
+    return(game);
 })
 
 btnThree.addEventListener("click", function(){
     game = playTijeras("tijeras");
     getWinner(game);
-    console.log(game);
+    return(game);
 })
 
 
@@ -109,13 +120,15 @@ function playTijeras(humano){
 function getWinner(game){
     if (game == "ganador"){
         alert("Has ganado esta ronda");
+        return "win"
     }else if (game == "perdedor"){
         alert("Has perdido esta ronda!");
+        return "lose"
     }else if (game == "empate"){
         alert("Esta ronda es empate");
+        return "tie"
     }
 }
-
 
 
 //Puntuacion
