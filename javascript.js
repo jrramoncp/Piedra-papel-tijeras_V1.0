@@ -160,8 +160,20 @@ function puntuacion(){
 //Refrescar página cuando llegue a 5 cualquiera de los contadores y asi reiniciar el juego
 
 function reload(){
-    if (humanScore == 5 || computerScore == 5){
-        location.reload()
+    if (humanScore == 5){
+        let newGame = confirm("¡Genial, has ganado! ¿Quieres jugar otra vez?")
+        if (newGame == true){
+            location.reload()
+         }else{
+            alert("¡Gracias por jugar!")
+            }
+    }else if (computerScore == 5){
+        let newGame = confirm("¡Que pena, has perdido! ¿Quieres jugar otra vez?")
+        if (newGame == true){
+            location.reload()
+         }else{
+            alert("¡Gracias por jugar!")
+            }
     }
 }
 
@@ -193,11 +205,6 @@ ronda = playRound()
 */
 //Funcion que finaliza el juego
 
-function endGame(){
-    winLose()
-    puntuacion()
-    getWinner()
-}
 
 
 /*
