@@ -34,31 +34,19 @@ function getComputerChoice(){
 //Una funcion para que el jugador introduzca su eleccion
 //Da igual como lo introduzca, siempre se hara en minusculas
 
-let humano = ""
 
 btnOne.addEventListener("click", function(){
-    humano = "piedra"
-});
+    playPiedra("piedra");
+})
 btnTwo.addEventListener("click", function(){
-    humano = "papel"
+    playRound("papel")
 })
 btnThree.addEventListener("click", function(){
-    humano = "tijeras"
+    playRound("tijeras")
 })
 
 
-function getHumanChoice(){
-    let humano = prompt("Elige: ¿Piedra, papel o tijeras?")
-    if(humano.toLowerCase() == "piedra"){
-        return ("piedra")
-}else if (humano.toLowerCase() == "papel"){
-        return ("papel")
-}else if (humano.toLowerCase ()== "tijeras"){
-    return ("tijeras")
-}else{
-    alert("Texto Incorrecto")
-}
-}
+
 
 
 //Logica para una ronda
@@ -66,8 +54,21 @@ function getHumanChoice(){
 //Las compare y determine un ganador o un empate
 
 
-function playRound(){
-    let player = getHumanChoice();
+function playPiedra(humano){
+    let player = humano;
+    let computer = getComputerChoice()
+    console.log(computer)
+    if (player == "piedra" && computer == "tijeras"){
+        console.log ("ganador");
+    }else if (player == computer){
+        console.log ("empate");
+    }else{
+        console.log("perdedor");
+    }
+}
+
+function playRound(humano){
+    let player = humano
     let computer = getComputerChoice();
     if (player == "piedra" && computer == "tijeras"){
        return ("ganador")
