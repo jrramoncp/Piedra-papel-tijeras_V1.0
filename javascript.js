@@ -67,21 +67,7 @@ function playPiedra(humano){
     }
 }
 
-function playRound(humano){
-    let player = humano
-    let computer = getComputerChoice();
-    if (player == "piedra" && computer == "tijeras"){
-       return ("ganador")
-    }else if (player == "papel" && computer == "piedra"){
-        return ("ganador")
-    }else if (player == "tijeras" && computer == "papel"){
-        return ("ganador")
-    }else if (player == computer){
-        return ("empate")
-    }else{
-        return("perdedor");
-    }
-}
+
 
 //Alertas
 //Una funcion, que obtenga el resultado de la operacion anterior y devuelva una alerta indicando si ganas o pierdes
