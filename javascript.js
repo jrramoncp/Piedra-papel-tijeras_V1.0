@@ -55,18 +55,21 @@ let game = ""
 btnOne.addEventListener("click", function(){
     game = (playPiedra("piedra"));
     getWinner(game);
-    return(game)
+    puntuacion()
+    return(game); 
 });
 
 btnTwo.addEventListener("click", function(){
     game = (playPapel("papel"));
     getWinner(game);
+    puntuacion()
     return(game);
 })
 
 btnThree.addEventListener("click", function(){
     game = playTijeras("tijeras");
     getWinner(game);
+    puntuacion()
     return(game);
 })
 
@@ -119,14 +122,11 @@ function playTijeras(humano){
 
 function getWinner(game){
     if (game == "ganador"){
-        alert("Has ganado esta ronda");
         return "win"
     }else if (game == "perdedor"){
-        alert("Has perdido esta ronda!");
-        return "lose"
+                return "lose"
     }else if (game == "empate"){
-        alert("Esta ronda es empate");
-        return "tie"
+                return "tie"
     }
 }
 
@@ -138,15 +138,18 @@ humanScore = 0
 computerScore = 0
 
 function puntuacion(){
-    if (ronda == "ganador"){
+    if (getWinner(game) == "win"){
+        alert("Has ganado esta ronda");
         humanScore ++
         console.log("Tus puntos: "+ (humanScore) + " / " + "Puntos de la maquina: " + computerScore)
     }
-    else if (ronda == "perdedor"){
+    else if (getWinner(game) == "lose"){
+        alert("Has perdido esta ronda!");
         computerScore ++
         console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
     }
-    else{
+    else if(getWinner(game)== "tie"){
+        alert("Esta ronda es empate");
         console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
     }
 }
