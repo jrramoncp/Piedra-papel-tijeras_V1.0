@@ -39,10 +39,10 @@ btnOne.addEventListener("click", function(){
     playPiedra("piedra");
 })
 btnTwo.addEventListener("click", function(){
-    playRound("papel")
+    playPapel("papel")
 })
 btnThree.addEventListener("click", function(){
-    playRound("tijeras")
+    playTijeras("tijeras")
 })
 
 
@@ -67,12 +67,36 @@ function playPiedra(humano){
     }
 }
 
+function playPapel(humano){
+    let player = humano;
+    let computer = getComputerChoice()
+    console.log(computer)
+    if (player == "papel" && computer == "piedra"){
+        console.log ("ganador");
+    }else if (player == computer){
+        console.log ("empate");
+    }else{
+        console.log("perdedor");
+    }
+}
 
+function playTijeras(humano){
+    let player = humano;
+    let computer = getComputerChoice()
+    console.log(computer)
+    if (player == "tijeras" && computer == "papel"){
+        console.log ("ganador");
+    }else if (player == computer){
+        console.log ("empate");
+    }else{
+        console.log("perdedor");
+    }
+}
 
 //Alertas
 //Una funcion, que obtenga el resultado de la operacion anterior y devuelva una alerta indicando si ganas o pierdes
 
-let ronda = playRound()
+//let ronda = playRound()
 
 function winLose(){
     if (ronda == "ganador"){
