@@ -1,17 +1,21 @@
 //INTERFAZ DE USUARIO
 //Botones para jugar
+const buttons = document.getElementById("buttons")
+
 let btnOne = document.createElement("button");
 btnOne.classList.add("Piedra");
 btnOne.textContent = "Piedra";
-document.body.appendChild(btnOne);
+buttons.appendChild(btnOne);
 let btnTwo = document.createElement("button");
 btnTwo.classList.add("Papel");
 btnTwo.textContent = "Papel";
-document.body.appendChild(btnTwo);
+buttons.appendChild(btnTwo);
 let btnThree = document.createElement("button");
 btnThree.classList.add("Tijeras");
 btnThree.textContent = "Tijeras";
-document.body.appendChild(btnThree);
+buttons.appendChild(btnThree);
+
+
 //MARCADORES
 
 
