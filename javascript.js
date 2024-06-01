@@ -1,5 +1,5 @@
 //INTERFAZ DE USUARIO
-
+//Botones para jugar
 let btnOne = document.createElement("button");
 btnOne.classList.add("Piedra");
 btnOne.textContent = "Piedra";
@@ -12,7 +12,22 @@ let btnThree = document.createElement("button");
 btnThree.classList.add("Tijeras");
 btnThree.textContent = "Tijeras";
 document.body.appendChild(btnThree);
+//MARCADORES
 
+
+
+let humanScore = 0
+let computerScore = 0
+
+const puntuacionJugadorElemento = document.getElementById("puntuacionJugador");
+const puntuacionMaquinaElemento = document.getElementById("puntuacionOrdenador");
+
+function actualizarPuntuacion(){
+    puntuacionJugadorElemento.textContent = humanScore;
+    puntuacionMaquinaElemento.textContent = computerScore;
+}
+
+/*
 //boton para pruebas
 
 let prueba = document.createElement("button")
@@ -23,7 +38,7 @@ prueba.addEventListener("click", function(){
     console.log(getWinner(game))
 })
 
-
+*/
 //Logica del PC
 
 //Una funcion para que el pc elija una de las tres opciones
@@ -137,18 +152,19 @@ function getWinner(game){
 //Puntuacion
 //Una funcion que dependiendo del resultado de la ronda sume puntos al ganador
 
-humanScore = 0
-computerScore = 0
+
 
 function puntuacion(){
     if (getWinner(game) == "win"){
         alert("Has ganado esta ronda");
         humanScore ++
+        actualizarPuntuacion()
         console.log("Tus puntos: "+ (humanScore) + " / " + "Puntos de la maquina: " + computerScore)
     }
     else if (getWinner(game) == "lose"){
         alert("Has perdido esta ronda!");
         computerScore ++
+        actualizarPuntuacion()
         console.log("Tus puntos: "+ humanScore + " / " + "Puntos de la maquina: " + (computerScore))
     }
     else if(getWinner(game)== "tie"){
@@ -178,46 +194,3 @@ function reload(){
 }
 
 
-
-//Juego Completo
-//Una funcion, para jugar cinco rondas y que vayan sumando puntos
-
-function fullGame(){
-winLose()
-puntuacion()
-ronda = playRound()
-}
-
-//Funcion que alerta si has ganado o perdido
-/*function getWinner(){
-    if (humanScore > computerScore){
-        alert("¡Has ganado!")
-        console.log("¡Has ganado!")
-    }else if (humanScore < computerScore){
-        alert("¡Has perdido!")
-        console.log("¡Has perdido!")
-    }else{
-        alert("¡Empate!")
-        console.log("¡Empate!")
-    }
-    
-}
-*/
-//Funcion que finaliza el juego
-
-
-
-/*
-///Juego completo a 5 rondas
-
-console.log("Ronda 1");
-fullGame();
-console.log("Ronda 2");
-fullGame();
-console.log("Ronda 3");
-fullGame();
-console.log("Ronda 4");
-fullGame();
-console.log("Ronda 5");
-endGame();
-*/
