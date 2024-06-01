@@ -26,25 +26,7 @@ function actualizarPuntuacion(){
     puntuacionJugadorElemento.textContent = humanScore;
     puntuacionMaquinaElemento.textContent = computerScore;
 }
-
-/*
-//boton para pruebas
-
-let prueba = document.createElement("button")
-prueba.textContent = "prueba"
-document.body.appendChild(prueba)
-
-prueba.addEventListener("click", function(){
-    console.log(getWinner(game))
-})
-
-*/
 //Logica del PC
-
-//Una funcion para que el pc elija una de las tres opciones
-//Traduce cada opcion numerica en un string y devuelve el string
-
-
 function getComputerChoice(){
     let ordenador = Math.ceil(Math.random() *3)
     if (ordenador == 1){
@@ -57,13 +39,6 @@ function getComputerChoice(){
 }
 
 //Logica del jugador
-//Una funcion para que el jugador introduzca su eleccion
-//Da igual como lo introduzca, siempre se hara en minusculas
-
-
-/*btnOne.addEventListener("click", function(){
-    return (playPiedra("piedra"));
-})*/
 
 let game = ""
 
@@ -91,13 +66,7 @@ btnThree.addEventListener("click", function(){
     return(game);
 })
 
-
-
-
 //Logica para una ronda
-//Una funcion que compare los resultados de las dos elecciones
-//Las compare y determine un ganador o un empate
-
 
 function playPiedra(humano){
     let player = humano;
@@ -136,7 +105,6 @@ function playTijeras(humano){
 }
 
 //Alertas
-//Una funcion, que obtenga el resultado de la operacion anterior y devuelva una alerta indicando si ganas o pierdes
 
 function getWinner(game){
     if (game == "ganador"){
@@ -150,8 +118,6 @@ function getWinner(game){
 
 
 //Puntuacion
-//Una funcion que dependiendo del resultado de la ronda sume puntos al ganador
-
 
 
 function puntuacion(){
