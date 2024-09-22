@@ -9,7 +9,7 @@ Aunque como he comentado anteriormente este proyecto fue uno de los primeros que
 seguir avanznado. Sientete libre de hacer un *Pull Request* toda ayuda o consejo es bienvenida. 
 
 ## Autor
-jjramoncp \n
+jjramoncp 
 
 Encuéntrame en GitHub: [jrramoncp](https://github.com/jrramoncp)
 O puedes enviar un mail si quieres: joseramoncaravaca@gmail.com
